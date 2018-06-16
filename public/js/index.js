@@ -1,4 +1,7 @@
 var socket = io();
+var sendMessage = (message) => {
+  socket.emit("createMessage", message);
+};
 
 socket.on("connect", function () {
   console.log("connected to server");
