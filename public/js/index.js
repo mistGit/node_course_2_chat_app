@@ -1,6 +1,6 @@
 var socket = io();
-var sendMessage = (message) => {
-  socket.emit("createMessage", message);
+var sendMessage = (from, text) => {
+  socket.emit("createMessage", {from, text});
 };
 
 socket.on("connect", function () {
