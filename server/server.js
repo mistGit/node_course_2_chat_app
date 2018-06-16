@@ -28,11 +28,12 @@ io.on("connection", (socket) => {
     console.log("disconnected");
   });
 
-  socket.on("createMessage", (message) => {
-    io.emit("newMessage", generateMessage(message.from, message.text))
+  socket.on("createMessage", (message, callback) => {
+  io.emit("newMessage", generateMessage(message.from, message.text));
+  callback("This is from the server.");
     // console.log(message);
     // io.emit("newMessage", message);
-    // socket.broadcast.emit("newMessage", message);
+    // socket.broadcast.emit("newMessage", generateMessage(message.from, message.text));
   });
 
 });
