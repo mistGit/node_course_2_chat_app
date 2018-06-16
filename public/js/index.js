@@ -5,12 +5,6 @@ var sendMessage = (message) => {
 
 socket.on("connect", function () {
   console.log("connected to server");
-
-  socket.emit("createMessage", {
-    from: "Andrew",
-    text: "Hey. This is Andrew."
-  });
-
 });
 
 socket.on("disconnect", function () {
@@ -18,5 +12,5 @@ socket.on("disconnect", function () {
 });
 
 socket.on("newMessage", function (message) {
-  console.log("New email recieved:", message);
+  console.log(message);
 });
